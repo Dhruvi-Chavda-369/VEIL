@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEIL — Secure Paper Transfer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div class="noise"></div>
+
+    <header class="topbar">
+        <div class="brand"><span class="brand-mark">V</span> VEIL</div>
+        <div class="status"><span></span> SECURE CHANNEL</div>
+    </header>
+
+    <main class="shell">
+        <section class="hero">
+            <div class="eyebrow">DOCUMENT SECURITY / 01</div>
+            <h1>KEEP THE<br><em>PAPER</em> PRIVATE.</h1>
+            <p>Seal sensitive exam papers and documents before transfer. The original file stays unreadable until the correct security key is supplied.</p>
+        </section>
+
+        <section class="vault">
+            <div class="vault-head">
+                <div>
+                    <span class="mini-label">SECURE TRANSFER</span>
+                    <h2>Document Vault</h2>
+                </div>
+                <div class="orbit">◎</div>
+            </div>
+
+            <div class="tabs">
+                <button class="tab active" data-mode="protect">01 / SEAL</button>
+                <button class="tab" data-mode="unlock">02 / OPEN</button>
+            </div>
+
+            <form id="docForm">
+                <div class="dropzone" id="dropzone">
+                    <input type="file" id="fileInput" hidden>
+                    <div class="drop-icon">＋</div>
+                    <div class="drop-title" id="dropTitle">DROP PAPER HERE</div>
+                    <div class="drop-sub" id="dropSub">PDF, DOCX, TXT or any document</div>
+                    <button type="button" class="browse" id="browseBtn">SELECT FILE</button>
+                </div>
+
+                <div class="file-info" id="fileInfo">
+                    <span id="fileName">—</span>
+                    <span id="fileSize">—</span>
+                </div>
+
+                <label class="key-label" for="password">SECURITY KEY</label>
+                <div class="key-row">
+                    <input type="password" id="password" placeholder="Enter private key" autocomplete="off">
+                    <button type="button" class="eye" id="togglePassword">◉</button>
+                </div>
+
+                <div class="meter"><span id="meterBar"></span></div>
+                <div class="meter-label"><span>KEY STRENGTH</span><span id="strength">WAITING</span></div>
+
+                <button class="action" type="submit" id="actionBtn">
+                    <span id="actionText">SEAL DOCUMENT</span><span>↗</span>
+                </button>
+            </form>
+
+            <div class="result" id="result"></div>
+        </section>
+    </main>
+
+    <footer>
+        <span>VEIL / PRIVATE DOCUMENT PROTECTION</span>
+        <span>NO DATABASE • LOCAL DEMO</span>
+    </footer>
+
+    <div class="modal" id="processing">
+        <div class="loader-ring"></div>
+        <div class="process-title" id="processTitle">SEALING DOCUMENT</div>
+        <div class="process-steps">
+            <span id="s1">SCANNING</span>
+            <span id="s2">ENCRYPTING</span>
+            <span id="s3">SEALING</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
